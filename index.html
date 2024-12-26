@@ -3,22 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sistema de seguimiento de carga de DIJ Logistics - Rastrea tus envíos en tiempo real">
-    <meta name="theme-color" content="#f8f9fa">
-    <title>DIJ Logistics - Seguimiento de Carga en Tiempo Real</title>
+    <meta name="description" content="Sistema de seguimiento de carga de DIJ Logistics">
+    <title>DIJ Logistics - Seguimiento de Carga</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #0056b3;
-            --secondary-color: #004085;
-            --accent-color: #ff6b6b;
-            --background-color: #f8f9fa;
-            --text-color: #333;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -26,312 +14,56 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            background-color: #f5f5f5;
         }
 
         .header {
-            background-color: var(--white);
-            padding: 15px 20px;
-            box-shadow: var(--shadow);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: var(--transition);
-        }
-
-        .header.scrolled {
-            padding: 10px 20px;
-            background-color: rgba(255, 255, 255, 0.98);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
         }
 
         .logo {
-            max-width: 200px;
+            max-width: 300px;
             height: auto;
-            transition: var(--transition);
-        }
-
-        .header.scrolled .logo {
-            max-width: 180px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-link {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        .nav-link:hover {
-            color: var(--primary-color);
-            background-color: rgba(0, 86, 179, 0.1);
-        }
-
-        .main-content {
-            margin-top: 100px;
-            padding: 20px;
-            min-height: calc(100vh - 160px);
         }
 
         .tracking-container {
             max-width: 1200px;
-            margin: 20px auto;
-            background-color: var(--white);
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .tracking-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .tracking-header {
+            margin: 40px auto;
             padding: 20px;
-            background-color: var(--primary-color);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .tracking-frame {
             width: 100%;
             height: 800px;
             border: none;
-            background-color: var(--white);
         }
 
         .footer {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            padding: 30px 20px;
             text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .footer-section {
-            text-align: left;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section li {
-            margin-bottom: 10px;
-        }
-
-        .footer-section a {
-            color: var(--white);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-section a:hover {
-            color: var(--accent-color);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .social-links a {
-            color: var(--white);
-            font-size: 1.5em;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .tracking-container {
-                margin: 10px;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .footer-section {
-                text-align: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-        }
-
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            transition: var(--transition);
-        }
-
-        .loader {
-            border: 5px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 5px solid var(--primary-color);
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .fade-out {
-            opacity: 0;
-            pointer-events: none;
+            padding: 20px;
+            background-color: #333;
+            color: white;
         }
     </style>
 </head>
 <body>
-    <div class="loading-overlay">
-        <div class="loader"></div>
-    </div>
-
     <header class="header">
-        <div class="header-content">
-            <img src="logo.png" alt="DIJ Logistics Logo" class="logo">
-            <nav class="nav-links">
-                <a href="#" class="nav-link">Inicio</a>
-                <a href="#tracking" class="nav-link">Seguimiento</a>
-                <a href="#contact" class="nav-link">Contacto</a>
-            </nav>
-        </div>
+        <img src="logo.png" alt="DIJ Logistics Logo" class="logo">
     </header>
 
-    <main class="main-content">
-        <div class="tracking-container">
-            <div class="tracking-header">
-                <i class="fas fa-truck"></i>
-                <h1>Seguimiento de Envíos</h1>
-            </div>
-            <iframe src="https://fuzioncargo.com/seguimiento-v2/" frameborder="0" class="tracking-frame"></iframe>
-        </div>
+    <main class="tracking-container">
+        <iframe src="https://fuzioncargo.com/seguimiento-v2/" frameborder="0" class="tracking-frame"></iframe>
     </main>
 
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Sobre Nosotros</h3>
-                <p>DIJ Logistics - Tu socio confiable en logística y transporte internacional. Comprometidos con la excelencia en el servicio.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Enlaces Rápidos</h3>
-                <ul>
-                    <li><a href="#">Servicios</a></li>
-                    <li><a href="#">Seguimiento</a></li>
-                    <li><a href="#">Cotización</a></li>
-                    <li><a href="#">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contacto</h3>
-                <ul>
-                    <li><i class="fas fa-phone"></i> +1 234 567 890</li>
-                    <li><i class="fas fa-envelope"></i> info@dijlogistics.com</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Tu dirección aquí</li>
-                </ul>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2024 DIJ Logistics - Tu Carga en Tiempo Record. Todos los derechos reservados.</p>
-        </div>
+        <p>&copy; 2024 DIJ Logistics - Tu Carga en Tiempo Record</p>
     </footer>
-
-    <script>
-        // Loader
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.querySelector('.loading-overlay').classList.add('fade-out');
-            }, 500);
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    </script>
 </body>
 </html>
