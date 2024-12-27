@@ -209,6 +209,102 @@
     background: #f09433;
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 }
+        /* Añade esto dentro de la sección <style> */
+
+/* Estilos base responsivos */
+.tracking-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Ajustes para tablets */
+@media (max-width: 768px) {
+    .logo-container img {
+        max-width: 250px;
+    }
+
+    .tracking-title {
+        font-size: 2rem;
+    }
+
+    .tracking-description {
+        font-size: 1rem;
+    }
+
+    .search-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .tracking-step {
+        padding: 15px;
+    }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 480px) {
+    .logo-container img {
+        max-width: 200px;
+    }
+
+    .tracking-title {
+        font-size: 1.5rem;
+    }
+
+    .tracking-description {
+        font-size: 0.9rem;
+    }
+
+    .search-input {
+        padding: 12px;
+    }
+
+    .tracking-step {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .step-location {
+        font-size: 1rem;
+    }
+
+    .step-date {
+        font-size: 0.8rem;
+    }
+
+    .social-buttons {
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .social-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .social-button svg {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 320px) {
+    .tracking-title {
+        font-size: 1.2rem;
+    }
+
+    .logo-container img {
+        max-width: 180px;
+    }
+}
     </style>
 </head>
 <body>
