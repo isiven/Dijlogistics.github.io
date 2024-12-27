@@ -18,6 +18,16 @@
             padding: 20px;
         }
 
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-container img {
+            max-width: 300px;
+            height: auto;
+        }
+
         .tracking-title {
             color: #333;
             font-size: 2.5rem;
@@ -55,6 +65,10 @@
             align-items: center;
             gap: 10px;
             cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #e76f51;
         }
 
         .country-bar {
@@ -138,11 +152,12 @@
     </style>
 </head>
 <body>
-     <div class="tracking-container">
-        <div class="logo-container" style="text-align: center; margin-bottom: 30px;">
-            <img src="img/dij-logo.png" alt="DIJ Logistics" style="max-width: 300px; height: auto;">
+    <div class="tracking-container">
+        <!-- Logo -->
+        <div class="logo-container">
+            <img src="img/dij-logo.png" alt="DIJ Logistics">
         </div>
-        <h1 class="tracking-title">Información de Paquete</h1>
+
         <h1 class="tracking-title">Información de Paquete</h1>
         <p class="tracking-description">Ingrese el código de seguimiento (tracking) para ver la información del paquete.</p>
 
